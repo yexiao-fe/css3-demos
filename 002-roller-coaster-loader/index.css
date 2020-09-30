@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+}
+
+.container{
+    width: 600px;
+    height: 400px;
+    background:linear-gradient(to right,darkcyan,teal);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);  
+}
+
+.container::after,.container::before{
+    content: "";
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+}
+
+/* 圆圈 */
+.container::before{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid white;
+    top: 100px;
+}
+
+/* 线条 */
+.container::after{
+    width: 400px;
+    height: 2px;
+    background-color: white;
+    top: 302px;
+}
+
+/* 点 */
+.container span{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    top: 287px;
+    left: 17%;
+    transform-origin: 50% -86px;
+    animation: run 4s linear infinite;
+    animation-delay: var(--n);
+}
+
+.container span:nth-child(1){
+    --n:0;
+}
+
+.container span:nth-child(2){
+    --n:0.25s;
+}
+
+.container span:nth-child(3){
+    --n:0.5s;
+}
+
+/* 动画 */
+@keyframes run{
+    0%{
+        left: 17%;
+        transform: rotate(0);
+    }
+    25%{
+        left: 49%;
+        transform: rotate(0);
+    }
+    75%{
+        left: 49%;
+        transform: rotate(-1turn);
+    }
+    100%{
+        left: 81%;
+        transform: rotate(-1turn);
+    }
+}
