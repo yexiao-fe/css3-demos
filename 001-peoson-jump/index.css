@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+}
+
+.container{
+    width: 400px;
+    height: 400px;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 人 */
+.person{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation:linear 3s infinite;
+    animation-name: walk,jump;
+    /* -5时会有不一样的动画效果 */
+    animation-delay:calc(var(--n) * 3s / 5);
+}
+
+.person:nth-child(1){
+    --n:1;
+}
+
+.person:nth-child(2){
+    --n:2;
+}
+
+
+.person:nth-child(3){
+    --n:3;
+}
+
+
+.person:nth-child(4){
+    --n:4;
+}
+
+.person:nth-child(5){
+    --n:5;
+}
+
+.person span{
+    display: block;
+    background-color: yellow;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.person span:nth-child(1){
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.person span:nth-child(2){
+    width: 2px;
+    height: 10px;
+    top: 20px;
+}
+
+.person span:nth-child(3){
+    width: 30px;
+    height: 1px;
+    top: 30px;
+}
+
+.person span:nth-child(4),
+.person span:nth-child(5){
+    width: 2px;
+    height: 20px;
+    top: 30px;
+    transform-origin: 0 0;
+    animation: leg linear 2s infinite;
+}
+
+.person span:nth-child(4){
+    --deg:30deg;
+}
+
+.person span:nth-child(5){
+    --deg:-30deg;
+}
+
+/* 两条腿的动画 */
+@keyframes leg{
+    0%,100%{
+        transform: translate(-50%) rotate(0);
+    }
+    50%{
+        transform: translate(-50%) rotate(var(--deg)); 
+    }
+}
+
+/* 步行动画 */
+
+@keyframes walk{
+    0%,95%,100%{
+        left: -75px;
+    }
+    80%,85%{
+        left: 0;
+    }
+}
+
+/* 跳 */
+@keyframes jump{
+    80%,100%{
+        top: 0;
+    }
+    85%, 95%{
+        top: -60px;
+    }
+}
