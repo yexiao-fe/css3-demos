@@ -1,0 +1,312 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+    position: relative;
+    background: linear-gradient(to bottom, #757abf 0%, #8583be 60%, #eab0d1 100%);
+}
+
+body div{
+    position: absolute;
+}
+
+/* 墙 */
+
+.wall{
+    left: 30%;
+    bottom: 20%;
+    width: 60%;
+    height: 30%;
+    background-color: silver;
+    --deg:154deg;
+    --deg2:calc(var(--deg) + 180deg);
+    --bc:#c00;
+    --bc2:#a00;
+    background-image:linear-gradient(var(--deg), var(--bc) 24px, transparent 24px),
+    linear-gradient(var(--deg2), var(--bc2) 24px, transparent 24px),
+    linear-gradient(var(--deg), var(--bc) 24px, transparent 24px),
+    linear-gradient(var(--deg2), var(--bc2) 24px, transparent 24px);
+    background-size: 60px 60px;
+    background-position: 0px 0px, -5px 26px,30px 30px,24px -4px;
+}
+
+.wall::before,
+.wall::after{
+content: '';
+    position: absolute;
+    width: 100%;
+    transform: skewX(45deg);
+    transform-origin: 0 0;
+}
+
+/* 墙影 */
+.wall::before{
+    --h:40px;
+    height: var(--h);
+    bottom: calc(var(--h) * -1);
+    background: #463b3b;
+    box-shadow: 0 0 5px #FFF;
+}
+
+/* 墙顶 */
+.wall::after{
+    --h:15px;
+    height: var(--h);
+    top: 0;
+    background: #a00;
+    box-shadow: 0 0 5px #c00;
+}
+
+/* 猫 */
+.cat{
+    position: absolute;
+    left: 82%;
+    top: 40%;;
+    width: 100px;
+    height: 40px   ;
+    background:#ccc8c8;
+    border-radius: 90% 70% 50% 60%;
+    box-shadow: -0.2em 1em 0 -0.75em #333;
+    z-index: 1;
+}
+
+
+
+/* 太阳 */
+.sun{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: yellow;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    animation: shimmer 15s linear infinite;
+}
+
+.sun div{
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    left: 50%;
+    top: 50%;
+    --deg:0deg;
+    transform:rotate(var(--deg)) translate(calc(-50% + 50px),-50%);
+    transform-origin: 0 0;
+}
+
+/* 光点 */
+.sun div::before{
+    width: 4px;
+    border-radius: 50%;
+    left: 100%;
+    animation: flare 1.6s linear infinite;
+}
+
+/* 光线 */
+.sun div::after{
+    width: 100%;
+    left: 0;
+    animation: wave 1.2s linear alternate infinite;
+}
+
+
+.sun div::before, 
+.sun div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #f9e318;
+    animation-delay: var(--delay);
+}
+
+.sun div:nth-child(even)::before,
+.sun div:nth-child(even)::after{
+    background: #e59a27;
+}
+
+/* 动画 */
+@keyframes wave {  
+    0% {
+        transform: scaleX(0.5);  
+    } 
+    50% {
+        transform: scaleX(1.3) translateX(5px);  
+    }
+    100% {
+        transform: scaleX(0.5);  
+    }
+}
+
+@keyframes flare {  
+    0% {    
+        opacity: 0;
+        transform: scale(0.5) translate(3px);  
+    }  
+    100% {    
+        opacity: 1;
+        transform: scale(1.2) translate(15px);  
+    }
+}
+
+
+@keyframes shimmer {  
+    0% {  
+        transform: rotate(0) scale(0.8);  
+    }
+    50% {  
+        transform: rotate(1turn) scale(1.1);  
+    }
+    100% {  
+        transform: rotate(1turn) scale(0.8);  
+    }
+}
+
+/* 光线位置 */
+.sun div:nth-child(1){
+    --deg:10deg;
+    --delay:-0.3s;
+}
+.sun div:nth-child(2){
+    --deg:20deg;
+    --delay:-0.6s;
+}
+.sun div:nth-child(3){
+    --deg:30deg;
+    --delay:-0.9s;
+}
+.sun div:nth-child(4){
+    --deg:40deg;
+    --delay:-1.2s;
+}
+.sun div:nth-child(5){
+    --deg:50deg;
+    --delay:-1.5s;
+}
+.sun div:nth-child(6){
+    --deg:60deg;
+    --delay:-1.8s;
+}
+.sun div:nth-child(7){
+    --deg:70deg;
+    --delay:-2.1s;
+}
+.sun div:nth-child(8){
+    --deg:80deg;
+    --delay:-2.4s;
+}
+.sun div:nth-child(9){
+    --deg:90deg;
+    --delay:-2.7s;
+}
+.sun div:nth-child(10){
+    --deg:100deg;
+    --delay:-3s;
+}
+
+.sun div:nth-child(11){
+    --deg:110deg;
+    --delay:-3.3s;
+}
+.sun div:nth-child(12){
+    --deg:120deg;
+    --delay:-3.6s;
+}
+.sun div:nth-child(13){
+    --deg:130deg;
+    --delay:-3.9s;
+}
+.sun div:nth-child(14){
+    --deg:140deg;
+    --delay:-4.2s;
+}
+.sun div:nth-child(15){
+    --deg:150deg;
+    --delay:-4.5s;
+}
+.sun div:nth-child(16){
+    --deg:160deg;
+    --delay:-4.8s;
+}
+.sun div:nth-child(17){
+    --deg:170deg;
+    --delay:-5.1s;
+}
+.sun div:nth-child(18){
+    --deg:180deg;
+    --delay:-5.4s;
+}
+.sun div:nth-child(19){
+    --deg:190deg;
+    --delay:-5.7s;
+}
+.sun div:nth-child(20){
+    --deg:200deg;
+    --delay:-6s;
+}
+
+.sun div:nth-child(21){
+    --deg:210deg;
+    --delay:-6.3s;
+}
+.sun div:nth-child(22){
+    --deg:220deg;
+    --delay:-6.6s;
+}
+.sun div:nth-child(23){
+    --deg:230deg;
+    --delay:-6.9s;
+}
+.sun div:nth-child(24){
+    --deg:240deg;
+    --delay:-7.2s;
+}
+.sun div:nth-child(25){
+    --deg:250deg;
+    --delay:-7.5s;
+}
+.sun div:nth-child(26){
+    --deg:260deg;
+    --delay:-7.8s;
+}
+.sun div:nth-child(27){
+    --deg:270deg;
+    --delay:-8.1s;
+}
+.sun div:nth-child(28){
+    --deg:280deg;
+    --delay:-8.4s;
+}
+.sun div:nth-child(29){
+    --deg:290deg;
+    --delay:-8.7s;
+}
+.sun div:nth-child(30){
+    --deg:300deg;
+    --delay:-9s;
+}
+
+.sun div:nth-child(31){
+    --deg:310deg;
+    --delay:-9.3s;
+}
+.sun div:nth-child(32){
+    --deg:320deg;
+    --delay:-9.6s;
+}
+.sun div:nth-child(33){
+    --deg:330deg;
+    --delay:-9.9s;
+}
+.sun div:nth-child(34){
+    --deg:340deg;
+    --delay:-10.2s;
+}
+.sun div:nth-child(35){
+    --deg:350deg;
+    --delay:-10.5s;
+}

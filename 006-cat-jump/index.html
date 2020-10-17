@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="wall"></div>
+    <div class="cat"></div>
+    <div class="sun"></div>
+</body>
+
+<script>
+    let nameArr = [];
+    for (let i = 0; i < 36; i++) {
+        nameArr.push(i)
+    }
+    let sun = document.querySelector('.sun');
+    nameArr.forEach(e => {
+        let div = document.createElement('div');
+        sun.appendChild(div)
+    })
+</script>
+
+</html>
