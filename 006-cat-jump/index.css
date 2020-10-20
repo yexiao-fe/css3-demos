@@ -64,15 +64,180 @@ content: '';
 .cat{
     position: absolute;
     left: 82%;
-    top: 40%;;
-    width: 100px;
-    height: 40px   ;
-    background:#ccc8c8;
-    border-radius: 90% 70% 50% 60%;
-    box-shadow: -0.2em 1em 0 -0.75em #333;
+    top: 41.5%;;
+    width: 50px;
+    height: 50px;
     z-index: 1;
+    --color:#000;
+    --inner-ear: #d36149;
+    --eye: #ddb54d;
+    --eyeball: #030303;
+    --eyelight: #fafafa;
+    --nose: #d3918e;
+    --heart: #dc4053;
 }
 
+/* 猫脸 */
+.cat::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: var(--color);
+}
+
+/* 猫耳 */
+.cat .ear{
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid var(--color);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: -6px;
+    animation: _ear 1.5s linear infinite;
+}
+
+@keyframes _ear{
+    0%{
+        top: -4px;
+    }
+    50%{
+        top: -8px;
+    }
+    100%{
+        top: -4px;
+    }
+}
+
+.cat .ear::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid var(--inner-ear);
+}
+
+.cat .ear.left{
+    left: 0;
+    transform: rotate(-35deg);
+}
+.cat .ear.left::before{
+    left: -7px;
+    border-left: 7px solid transparent;
+}
+.cat .ear.right{
+    right: 0;
+    transform: rotate(35deg);
+}
+.cat .ear.right::before{
+    right: -7px;
+    border-right: 7px solid transparent;
+}
+
+/* 猫眼 */
+.cat .eye{
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center center,var(--eyeball) 60%,transparent 60%) ,var(--eye);
+    position: absolute;
+    top: 25%;
+    --t:20%;
+}
+
+.cat .eye::before{
+    content: '';
+    position: absolute;
+    width:10%;
+    height: 10%;
+    background-color: var(--eyelight);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.cat .eye.left{
+    left:var(--t);
+}
+
+.cat .eye.right{
+    right:var(--t);
+}
+
+/* 猫鼻 */
+.cat .nose{
+    width: 10%;
+    height: 9%;
+    background-color: var(--nose);
+    border-radius: 49% 51% 50% 50% / 10% 10% 90% 90%;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.cat .nose::before,
+.cat .nose::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 150%;
+    background-color: var(--nose);
+    --deg:45deg;
+    top: 70%;
+    transform-origin:  0 0;
+}
+
+.cat .nose::before{
+    transform: rotate(calc(var(--deg) * -1));
+    left: 0;
+}
+.cat .nose::after{
+    transform: rotate(var(--deg));
+    right: 0;
+}
+
+/* 猫身 */
+.cat .body{
+    width: 105%;
+    height: 100%;
+    background-color: var(--color);
+    border-radius: 25% 80% 100% 0% / 25% 100% 0% 100%;
+    position: absolute;
+    top: 70%;
+    left:20%;
+}
+
+/* 猫尾 */
+.cat .body::before{
+    background-color: var(--color);
+    width: 82%;
+    height: 12%;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 94%;
+    border-radius: 0 20% 20% 0;
+    transform: rotate(-25deg);
+    transform-origin: 0 0;
+}
+
+/* 猫jio */
+.cat .body::after{
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    background-color: transparent;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    box-shadow: 0.35rem 2.9rem 0, 1.5em 2.9em 0 -0.02em;
+}
 
 
 /* 太阳 */
