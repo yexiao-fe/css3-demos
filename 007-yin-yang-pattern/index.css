@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    position: relative;
+    background: #4d5077;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    width: 30rem;
+    height: 30rem;
+    --c1:#000;
+    --c2:#fff;
+    background: linear-gradient(var(--c1) 50%,var(--c2) 50%);
+    position: relative;
+    border-radius: 50%;
+}
+
+div::after,div::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    border-radius: 50%;
+}
+
+div::before{
+    left: 0;
+    background: radial-gradient(var(--c2) 25%,var(--c1) 25%);
+}
+
+div::after{
+    right:0;
+    background: radial-gradient(var(--c1) 25%,var(--c2) 25%);
+}
