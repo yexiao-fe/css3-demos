@@ -1,0 +1,308 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 20px;
+}
+body{
+    position: relative;
+    background:linear-gradient(#110d3e,#000);
+    width: 100vw;
+    height: 100vh; 
+}
+
+div,
+.pe::after,
+.pe::before{
+    --t:0;
+    --l:0;
+    position: absolute;
+    left: var(--l);
+    top:var(--t);
+    width: var(--w);
+    height: var(--h);
+    box-sizing: border-box;
+}
+
+.pe::after,
+.pe::before{
+    content: "";
+}
+
+/* 月亮 */
+.moon{
+    left: initial;
+    right: 5%;
+    --t:5%;
+    --w:5rem;
+    --h:5rem;
+    border-radius: 50%;
+    background: linear-gradient(to right bottom,yellow,#fff 75%);
+    box-shadow: 0.1rem 0.1rem 0.25rem #f1f1c1;
+}
+
+/* 猴子 */
+.monkey{
+    --l:10%;
+    --t:40%;
+    --w:10rem;
+    --h:10rem;
+    overflow: hidden;
+    --m1:#bb792f;
+    --m2:#2d0102;
+    --m3:#fed2a3;
+    --m4:#fff;
+}
+
+/* 猴头 */
+.monkey .header{
+    --w: 60%;
+    --h: 56%;
+    --l: 18%;
+    border-radius: 50% 64% 48% 53%;
+    background-color: var(--m1);
+    /* border: 0.05rem solid var(--m2); */
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 猴脸 */
+.monkey .header .face{
+    background-color: var(--m3);
+}
+
+.monkey .header .face1{
+    --l: 67%;
+    --w: 55%;
+    --h: 90%;
+    border-radius: 50% 64% 40% 53%;
+    border-top: 0.3rem solid var(--m2);
+}
+.monkey .header .face2{
+    --l: 44%;
+    --t: 10%;
+    --w: 44%;
+    --h: 80%;
+    border-radius: 50% 64% 40% 53%;
+    border-top: 0.25rem solid var(--m2);
+    transform: rotate(-78deg);
+}
+.monkey .header .face3{
+    --l: 48%;
+    --t: 62%;
+    --w: 55%;
+    --h: 45%;
+    border-radius: 50% 64% 40% 53%;
+    border-left: 0.2rem solid var(--m2);
+    transform: rotate(-28deg);
+}
+
+/* 猴耳 */
+.monkey .ear{
+    border:0.1rem solid var(--m2);
+}
+.monkey .header .ear.right{
+    --l: 8%;
+    --t: 56%;
+    --w: 24%;
+    --h: 30%;
+    border-radius: 50% 85% 50%;
+}
+.monkey .header .ear.right::after{
+    --l: 25%;
+    --t: 40%;
+    --w: 80%;
+    --h: 60%;
+    border-radius: 50% 85% 50%;
+    border-top:0.1rem solid var(--m2);
+}
+.monkey .ear.left{
+    --l: 68%;
+    --t: 11%;
+    --w: 10%;
+    --h: 12%;
+    border-radius: 50%;
+    background-color: var(--m1);
+    transform: rotate(-20deg);
+    z-index: -1;
+}
+
+/* 猴眼 */
+.monkey .header .eye{
+    --w: 20%;
+    --h: 22%;
+    border-radius: 50%;
+    border-right: 0.15rem solid var(--m2);
+    padding-right: 0.1rem;
+    background: var(--m2) content-box;  
+}
+.monkey .header .eye::after{
+    --l: 30%;
+    --t: 20%;
+    --w: 25%;
+    --h: 25%;
+    background: var(--m4);
+    border-radius: 50%;
+}
+.monkey .header .eye.right{
+    --l: 50%;
+    --t: 46%;
+    transform: rotate(-18deg);
+}
+.monkey .header .eye.left{
+    --l: 78%;
+    --t: 32%;
+    transform: rotate(-18deg) scale(0.9);
+}
+
+/* 猴鼻子 */
+.monkey .header .nose{
+    --l: 75%;
+    --t: 56%;
+    --w: 16%;
+    --h: 14%;
+    border-radius: 80% 30% 40% 40%;
+    border: 0.1rem solid var(--m2);   
+}
+.monkey .header .nose::after{
+    --l: 37%;
+    --t: 95%;
+    --w: 60%;
+    --h: 100%;
+    border-top: 0.1rem solid var(--m2);
+    transform: rotate(70deg);
+}
+
+/* 猴嘴 */
+.monkey .header .mouse{
+    --l: 68%;
+    --t: 61%;
+    --w: 30%;
+    --h: 20%;
+    border-left: 0.1rem solid var(--m2);
+    border-bottom: 0.1rem solid var(--m2);
+    border-radius: 50% 100%;
+    transform: rotate(-35deg);
+}
+
+/* 猴身 */
+.monkey .body{
+    --l: 28%;
+    --t: 54%;
+    --w: 45%;
+    --h: 45%;
+    border-radius: 80% 50% / 70%;
+    background-color: var(--m1);
+}
+
+/* 猴尾巴 */
+.monkey .body::before{
+    --t:80%;
+    --w: 120%;
+    --h: 12%;
+    border-radius: 50%;
+    background-color: var(--m1);
+    border-top: 0.05rem solid var(--m2);
+    transform-origin: 0 0;
+    transform: rotate(-124deg);
+}
+
+/* 猴脚 */
+.monkey .body::after{
+    --l: 90%;
+    --t: 50%;
+    --w: 35%;
+    --h: 55%;
+    border-radius: 50% /70%;
+    background-color: var(--m1);
+    border-right: 0.05rem solid var(--m2);
+    transform: rotate(58deg);
+}
+
+/* 猴手 */
+.monkey .hand{
+    --l: 60%;
+    --t: 56%;
+    --w: 40%;
+    --h: 12%;
+    border-radius: 0% 50% 50% 0%;
+    background-color: var(--m1);
+    border: 0.05rem solid var(--m2);
+    border-left: 0;
+    transform: rotate(7deg);
+}
+
+/* 月饼 */
+.cake{
+    --l:60%;
+    --t:75%;
+    --w:5rem;
+    --h:5rem;
+    --c1:#ce9126;
+    --c2:#eb9705;
+    --c3:#636363;
+    --c4:#ebb43f;
+    --c5:#ffff9a;
+    animation: _cake linear 2s infinite;
+}
+.cake::after{
+    --w: 100%;
+    --h: 55%;
+    background-color: var(--c4);
+    border-radius: 50%;
+    content: '五仁';
+    text-align: center;
+    line-height: 2.75rem;
+    color: var(--c5);
+}
+.cake .half{
+    --t: 30%;
+    --w: 100%;
+    --h: 60%;
+    background-color: var(--c1);
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0.05rem 0.2rem 0.2rem var(--c3);
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+.cake .half div{
+    --w:0;
+    --h:100%;
+    border-left: 0.3rem ridge var(--c1);
+    position: initial;
+}
+@keyframes _cake{
+    50%{
+        transform: scale(0.7);
+    }
+}
+
+/* 鱼竿 */
+.rod{
+    --l: 22%;
+    --t: 60%;
+    --w: 40%;
+    --h: 0.3rem;
+    --r1:#bb792f;
+    --r2:#ffffef;
+    background-color: var(--r1);
+    transform: rotate(-30deg);
+    transform-origin: 0;
+}
+.rod::before{
+    --t:-0.1rem;
+    --w:35%;
+    --h:0.5rem;
+    background-color: var(--r1);
+}
+
+.rod::after{
+    --l: 100%;
+    --w: 80%;
+    --h: 0.02rem;
+    background-color: var(--r2);
+    transform: rotate(106deg);
+    transform-origin: left;
+}
